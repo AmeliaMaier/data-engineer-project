@@ -1,6 +1,6 @@
 import psycopg2
-from CSVUtil import CSVUtil 
-from PSQLUtil import PSQLUtil
+from CSVConnection import CSVConnection
+from PSQLConnection import PSQLConnection
 
 def getConnection(type, user_name=None, password=None, dbname=None, host=None):
     """
@@ -24,9 +24,10 @@ def getConnection(type, user_name=None, password=None, dbname=None, host=None):
     try:
         if type == 'PSQL':
             conn = psycopg2.connect(dbname=dbname, user=user_name, password=password, host=host)
-            return PSQLUtil(conn) 
+            return PSQLConnection(conn) 
         elif type == 'CSV':
-            return CSVUtil()
+            # using dbname as equivalent to the location files should be saved as the files represent the db.
+            return CSVConnection(save_location=dbname)
         else:
             raise RuntimeError(f'ConnectionHelper.getConnection: Connection type [{type}] not recognized.')
     except Exception as err:

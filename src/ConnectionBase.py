@@ -8,3 +8,9 @@ class ConnectionBase:
     """
     def table_exists(self, schema, table_name):
         pass
+
+    def get_column_types(self, schema, table_name):
+        pass
+
+    def append_to_table_return_ids(df, schema, table_name, id_column_name):
+        pass
