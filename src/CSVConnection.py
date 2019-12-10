@@ -85,3 +85,6 @@ class CSVConnection(ConnectionBase):
         else:
             df = pd.read_csv(file_name, usecols=source_columns, dtype=pd.Series(end_data_types,index=source_columns).to_dict())
         return df.rename(columns=pd.Series(end_columns,index=source_columns).to_dict())
+
+    def insert_with_conflict(self, df, data_mapping, schema, table_name):
+        pass

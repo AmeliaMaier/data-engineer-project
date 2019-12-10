@@ -97,7 +97,7 @@ def load_table(schema, table_name, connection):
     # basic data cleaning (casting to correct type) being done durring read in
     # more advanced cleaning would require business logic and would go here 
     # write out data
-    df = connection.
+    df = connection.insert_with_conflict_delete_and_return(source_data, data_mapping, schema, table_name)
     # if type delete, check for returned conflicts
     # set source data as transformed
     pass

@@ -23,3 +23,6 @@ class ConnectionBase:
 
     def get_source_data(self, data_mapping):
         pass
+
+    def insert_with_conflict(self, df, data_mapping, schema, table_name):
+        pass
