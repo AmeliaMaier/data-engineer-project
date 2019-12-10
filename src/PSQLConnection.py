@@ -69,12 +69,15 @@ class PSQLConnection(ConnectionBase):
         var_dict['id_column_name'] = id_column_name
         return self._query_to_df(query, var_dict)
 
-    def append_to_table(self, df, schema, table_name):
+    def append_to_table(self, df, schema, table_name, on_conflict='nothing'):
         """
         Simple append statement, not taking upsert or confilicts into account yet.
         """
         insert_statement, var_dict = self._get_insert_statment_from_df(df, schema, table_name)
-        insert_statement += ';'
+        if on_conflict = 'delete':
+            CONFLICT("user", "contact") DO UPDATE SET name=EXCLUDED.name RETURNING id;
+        else:
+            insert_statement += ' ON CONFLICT ("id") DO NOTHING;'
         self._simple_execute(insert_statement, var_dict)
 
     def get_data_mapping(self, mapping_schema, end_schema, end_table_name):
@@ -101,6 +104,7 @@ class PSQLConnection(ConnectionBase):
                     FROM {data_mapping['source_schema'].iloc[0]}.{data_mapping['source_table'].iloc[0]} 
                     WHERE \"transformed_{data_mapping['end_table'].iloc[0]}\" IS FALSE;"""
         return self._query_to_df(query)
+
 
     def _get_insert_statment_from_df(self, df, schema, table_name):
         columns = self._get_column_statment_from_df(df)

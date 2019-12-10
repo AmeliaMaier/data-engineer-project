@@ -88,12 +88,16 @@ def load_csv(csv_name, schema, table_name, file_path, connection):
 
 
 def load_table(schema, table_name, connection):
+    if not connection.table_exists(table_name):
+        raise RuntimeError(f'Main.load_table: Table [{table_name}] needed to write out not found.')
     # load data mapping for given table
     data_mapping = connection.get_data_mapping('mapping_schema', schema, table_name)
     # load source data for new table
     source_data = connection.get_source_data(data_mapping)
-    # basic data cleaning (casting to correct type)
+    # basic data cleaning (casting to correct type) being done durring read in
+    # more advanced cleaning would require business logic and would go here 
     # write out data
+    df = connection.
     # if type delete, check for returned conflicts
     # set source data as transformed
     pass
