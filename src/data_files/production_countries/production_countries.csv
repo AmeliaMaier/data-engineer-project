@@ -1,0 +1,251 @@
+id,name,iso_3166_1,source
+1,Afghanistan,AF,https://datahub.io/core/country-list
+2,Åland Islands,AX,https://datahub.io/core/country-list
+3,Albania,AL,https://datahub.io/core/country-list
+4,Algeria,DZ,https://datahub.io/core/country-list
+5,American Samoa,AS,https://datahub.io/core/country-list
+6,Andorra,AD,https://datahub.io/core/country-list
+7,Angola,AO,https://datahub.io/core/country-list
+8,Anguilla,AI,https://datahub.io/core/country-list
+9,Antarctica,AQ,https://datahub.io/core/country-list
+10,Antigua and Barbuda,AG,https://datahub.io/core/country-list
+11,Argentina,AR,https://datahub.io/core/country-list
+12,Armenia,AM,https://datahub.io/core/country-list
+13,Aruba,AW,https://datahub.io/core/country-list
+14,Australia,AU,https://datahub.io/core/country-list
+15,Austria,AT,https://datahub.io/core/country-list
+16,Azerbaijan,AZ,https://datahub.io/core/country-list
+17,Bahamas,BS,https://datahub.io/core/country-list
+18,Bahrain,BH,https://datahub.io/core/country-list
+19,Bangladesh,BD,https://datahub.io/core/country-list
+20,Barbados,BB,https://datahub.io/core/country-list
+21,Belarus,BY,https://datahub.io/core/country-list
+22,Belgium,BE,https://datahub.io/core/country-list
+23,Belize,BZ,https://datahub.io/core/country-list
+24,Benin,BJ,https://datahub.io/core/country-list
+25,Bermuda,BM,https://datahub.io/core/country-list
+26,Bhutan,BT,https://datahub.io/core/country-list
+27,"""Bolivia","Plurinational State of""",https://datahub.io/core/country-list
+28,"""Bonaire","Sint Eustatius and Saba""",https://datahub.io/core/country-list
+29,Bosnia and Herzegovina,BA,https://datahub.io/core/country-list
+30,Botswana,BW,https://datahub.io/core/country-list
+31,Bouvet Island,BV,https://datahub.io/core/country-list
+32,Brazil,BR,https://datahub.io/core/country-list
+33,British Indian Ocean Territory,IO,https://datahub.io/core/country-list
+34,Brunei Darussalam,BN,https://datahub.io/core/country-list
+35,Bulgaria,BG,https://datahub.io/core/country-list
+36,Burkina Faso,BF,https://datahub.io/core/country-list
+37,Burundi,BI,https://datahub.io/core/country-list
+38,Cambodia,KH,https://datahub.io/core/country-list
+39,Cameroon,CM,https://datahub.io/core/country-list
+40,Canada,CA,https://datahub.io/core/country-list
+41,Cape Verde,CV,https://datahub.io/core/country-list
+42,Cayman Islands,KY,https://datahub.io/core/country-list
+43,Central African Republic,CF,https://datahub.io/core/country-list
+44,Chad,TD,https://datahub.io/core/country-list
+45,Chile,CL,https://datahub.io/core/country-list
+46,China,CN,https://datahub.io/core/country-list
+47,Christmas Island,CX,https://datahub.io/core/country-list
+48,Cocos (Keeling) Islands,CC,https://datahub.io/core/country-list
+49,Colombia,CO,https://datahub.io/core/country-list
+50,Comoros,KM,https://datahub.io/core/country-list
+51,Congo,CG,https://datahub.io/core/country-list
+52,"""Congo","the Democratic Republic of the""",https://datahub.io/core/country-list
+53,Cook Islands,CK,https://datahub.io/core/country-list
+54,Costa Rica,CR,https://datahub.io/core/country-list
+55,Côte d'Ivoire,CI,https://datahub.io/core/country-list
+56,Croatia,HR,https://datahub.io/core/country-list
+57,Cuba,CU,https://datahub.io/core/country-list
+58,Curaçao,CW,https://datahub.io/core/country-list
+59,Cyprus,CY,https://datahub.io/core/country-list
+60,Czech Republic,CZ,https://datahub.io/core/country-list
+61,Denmark,DK,https://datahub.io/core/country-list
+62,Djibouti,DJ,https://datahub.io/core/country-list
+63,Dominica,DM,https://datahub.io/core/country-list
+64,Dominican Republic,DO,https://datahub.io/core/country-list
+65,Ecuador,EC,https://datahub.io/core/country-list
+66,Egypt,EG,https://datahub.io/core/country-list
+67,El Salvador,SV,https://datahub.io/core/country-list
+68,Equatorial Guinea,GQ,https://datahub.io/core/country-list
+69,Eritrea,ER,https://datahub.io/core/country-list
+70,Estonia,EE,https://datahub.io/core/country-list
+71,Ethiopia,ET,https://datahub.io/core/country-list
+72,Falkland Islands (Malvinas),FK,https://datahub.io/core/country-list
+73,Faroe Islands,FO,https://datahub.io/core/country-list
+74,Fiji,FJ,https://datahub.io/core/country-list
+75,Finland,FI,https://datahub.io/core/country-list
+76,France,FR,https://datahub.io/core/country-list
+77,French Guiana,GF,https://datahub.io/core/country-list
+78,French Polynesia,PF,https://datahub.io/core/country-list
+79,French Southern Territories,TF,https://datahub.io/core/country-list
+80,Gabon,GA,https://datahub.io/core/country-list
+81,Gambia,GM,https://datahub.io/core/country-list
+82,Georgia,GE,https://datahub.io/core/country-list
+83,Germany,DE,https://datahub.io/core/country-list
+84,Ghana,GH,https://datahub.io/core/country-list
+85,Gibraltar,GI,https://datahub.io/core/country-list
+86,Greece,GR,https://datahub.io/core/country-list
+87,Greenland,GL,https://datahub.io/core/country-list
+88,Grenada,GD,https://datahub.io/core/country-list
+89,Guadeloupe,GP,https://datahub.io/core/country-list
+90,Guam,GU,https://datahub.io/core/country-list
+91,Guatemala,GT,https://datahub.io/core/country-list
+92,Guernsey,GG,https://datahub.io/core/country-list
+93,Guinea,GN,https://datahub.io/core/country-list
+94,Guinea-Bissau,GW,https://datahub.io/core/country-list
+95,Guyana,GY,https://datahub.io/core/country-list
+96,Haiti,HT,https://datahub.io/core/country-list
+97,Heard Island and McDonald Islands,HM,https://datahub.io/core/country-list
+98,Holy See (Vatican City State),VA,https://datahub.io/core/country-list
+99,Honduras,HN,https://datahub.io/core/country-list
+100,Hong Kong,HK,https://datahub.io/core/country-list
+101,Hungary,HU,https://datahub.io/core/country-list
+102,Iceland,IS,https://datahub.io/core/country-list
+103,India,IN,https://datahub.io/core/country-list
+104,Indonesia,ID,https://datahub.io/core/country-list
+105,"""Iran","Islamic Republic of""",https://datahub.io/core/country-list
+106,Iraq,IQ,https://datahub.io/core/country-list
+107,Ireland,IE,https://datahub.io/core/country-list
+108,Isle of Man,IM,https://datahub.io/core/country-list
+109,Israel,IL,https://datahub.io/core/country-list
+110,Italy,IT,https://datahub.io/core/country-list
+111,Jamaica,JM,https://datahub.io/core/country-list
+112,Japan,JP,https://datahub.io/core/country-list
+113,Jersey,JE,https://datahub.io/core/country-list
+114,Jordan,JO,https://datahub.io/core/country-list
+115,Kazakhstan,KZ,https://datahub.io/core/country-list
+116,Kenya,KE,https://datahub.io/core/country-list
+117,Kiribati,KI,https://datahub.io/core/country-list
+118,"""Korea","Democratic People's Republic of""",https://datahub.io/core/country-list
+119,"""Korea","Republic of""",https://datahub.io/core/country-list
+120,Kuwait,KW,https://datahub.io/core/country-list
+121,Kyrgyzstan,KG,https://datahub.io/core/country-list
+122,Lao People's Democratic Republic,LA,https://datahub.io/core/country-list
+123,Latvia,LV,https://datahub.io/core/country-list
+124,Lebanon,LB,https://datahub.io/core/country-list
+125,Lesotho,LS,https://datahub.io/core/country-list
+126,Liberia,LR,https://datahub.io/core/country-list
+127,Libya,LY,https://datahub.io/core/country-list
+128,Liechtenstein,LI,https://datahub.io/core/country-list
+129,Lithuania,LT,https://datahub.io/core/country-list
+130,Luxembourg,LU,https://datahub.io/core/country-list
+131,Macao,MO,https://datahub.io/core/country-list
+132,"""Macedonia","the Former Yugoslav Republic of""",https://datahub.io/core/country-list
+133,Madagascar,MG,https://datahub.io/core/country-list
+134,Malawi,MW,https://datahub.io/core/country-list
+135,Malaysia,MY,https://datahub.io/core/country-list
+136,Maldives,MV,https://datahub.io/core/country-list
+137,Mali,ML,https://datahub.io/core/country-list
+138,Malta,MT,https://datahub.io/core/country-list
+139,Marshall Islands,MH,https://datahub.io/core/country-list
+140,Martinique,MQ,https://datahub.io/core/country-list
+141,Mauritania,MR,https://datahub.io/core/country-list
+142,Mauritius,MU,https://datahub.io/core/country-list
+143,Mayotte,YT,https://datahub.io/core/country-list
+144,Mexico,MX,https://datahub.io/core/country-list
+145,"""Micronesia","Federated States of""",https://datahub.io/core/country-list
+146,"""Moldova","Republic of""",https://datahub.io/core/country-list
+147,Monaco,MC,https://datahub.io/core/country-list
+148,Mongolia,MN,https://datahub.io/core/country-list
+149,Montenegro,ME,https://datahub.io/core/country-list
+150,Montserrat,MS,https://datahub.io/core/country-list
+151,Morocco,MA,https://datahub.io/core/country-list
+152,Mozambique,MZ,https://datahub.io/core/country-list
+153,Myanmar,MM,https://datahub.io/core/country-list
+154,Namibia,NA,https://datahub.io/core/country-list
+155,Nauru,NR,https://datahub.io/core/country-list
+156,Nepal,NP,https://datahub.io/core/country-list
+157,Netherlands,NL,https://datahub.io/core/country-list
+158,New Caledonia,NC,https://datahub.io/core/country-list
+159,New Zealand,NZ,https://datahub.io/core/country-list
+160,Nicaragua,NI,https://datahub.io/core/country-list
+161,Niger,NE,https://datahub.io/core/country-list
+162,Nigeria,NG,https://datahub.io/core/country-list
+163,Niue,NU,https://datahub.io/core/country-list
+164,Norfolk Island,NF,https://datahub.io/core/country-list
+165,Northern Mariana Islands,MP,https://datahub.io/core/country-list
+166,Norway,NO,https://datahub.io/core/country-list
+167,Oman,OM,https://datahub.io/core/country-list
+168,Pakistan,PK,https://datahub.io/core/country-list
+169,Palau,PW,https://datahub.io/core/country-list
+170,"""Palestine","State of""",https://datahub.io/core/country-list
+171,Panama,PA,https://datahub.io/core/country-list
+172,Papua New Guinea,PG,https://datahub.io/core/country-list
+173,Paraguay,PY,https://datahub.io/core/country-list
+174,Peru,PE,https://datahub.io/core/country-list
+175,Philippines,PH,https://datahub.io/core/country-list
+176,Pitcairn,PN,https://datahub.io/core/country-list
+177,Poland,PL,https://datahub.io/core/country-list
+178,Portugal,PT,https://datahub.io/core/country-list
+179,Puerto Rico,PR,https://datahub.io/core/country-list
+180,Qatar,QA,https://datahub.io/core/country-list
+181,Réunion,RE,https://datahub.io/core/country-list
+182,Romania,RO,https://datahub.io/core/country-list
+183,Russian Federation,RU,https://datahub.io/core/country-list
+184,Rwanda,RW,https://datahub.io/core/country-list
+185,Saint Barthélemy,BL,https://datahub.io/core/country-list
+186,"""Saint Helena","Ascension and Tristan da Cunha""",https://datahub.io/core/country-list
+187,Saint Kitts and Nevis,KN,https://datahub.io/core/country-list
+188,Saint Lucia,LC,https://datahub.io/core/country-list
+189,Saint Martin (French part),MF,https://datahub.io/core/country-list
+190,Saint Pierre and Miquelon,PM,https://datahub.io/core/country-list
+191,Saint Vincent and the Grenadines,VC,https://datahub.io/core/country-list
+192,Samoa,WS,https://datahub.io/core/country-list
+193,San Marino,SM,https://datahub.io/core/country-list
+194,Sao Tome and Principe,ST,https://datahub.io/core/country-list
+195,Saudi Arabia,SA,https://datahub.io/core/country-list
+196,Senegal,SN,https://datahub.io/core/country-list
+197,Serbia,RS,https://datahub.io/core/country-list
+198,Seychelles,SC,https://datahub.io/core/country-list
+199,Sierra Leone,SL,https://datahub.io/core/country-list
+200,Singapore,SG,https://datahub.io/core/country-list
+201,Sint Maarten (Dutch part),SX,https://datahub.io/core/country-list
+202,Slovakia,SK,https://datahub.io/core/country-list
+203,Slovenia,SI,https://datahub.io/core/country-list
+204,Solomon Islands,SB,https://datahub.io/core/country-list
+205,Somalia,SO,https://datahub.io/core/country-list
+206,South Africa,ZA,https://datahub.io/core/country-list
+207,South Georgia and the South Sandwich Islands,GS,https://datahub.io/core/country-list
+208,South Sudan,SS,https://datahub.io/core/country-list
+209,Spain,ES,https://datahub.io/core/country-list
+210,Sri Lanka,LK,https://datahub.io/core/country-list
+211,Sudan,SD,https://datahub.io/core/country-list
+212,Suriname,SR,https://datahub.io/core/country-list
+213,Svalbard and Jan Mayen,SJ,https://datahub.io/core/country-list
+214,Swaziland,SZ,https://datahub.io/core/country-list
+215,Sweden,SE,https://datahub.io/core/country-list
+216,Switzerland,CH,https://datahub.io/core/country-list
+217,Syrian Arab Republic,SY,https://datahub.io/core/country-list
+218,"""Taiwan","Province of China""",https://datahub.io/core/country-list
+219,Tajikistan,TJ,https://datahub.io/core/country-list
+220,"""Tanzania","United Republic of""",https://datahub.io/core/country-list
+221,Thailand,TH,https://datahub.io/core/country-list
+222,Timor-Leste,TL,https://datahub.io/core/country-list
+223,Togo,TG,https://datahub.io/core/country-list
+224,Tokelau,TK,https://datahub.io/core/country-list
+225,Tonga,TO,https://datahub.io/core/country-list
+226,Trinidad and Tobago,TT,https://datahub.io/core/country-list
+227,Tunisia,TN,https://datahub.io/core/country-list
+228,Turkey,TR,https://datahub.io/core/country-list
+229,Turkmenistan,TM,https://datahub.io/core/country-list
+230,Turks and Caicos Islands,TC,https://datahub.io/core/country-list
+231,Tuvalu,TV,https://datahub.io/core/country-list
+232,Uganda,UG,https://datahub.io/core/country-list
+233,Ukraine,UA,https://datahub.io/core/country-list
+234,United Arab Emirates,AE,https://datahub.io/core/country-list
+235,United Kingdom,GB,https://datahub.io/core/country-list
+236,United States,US,https://datahub.io/core/country-list
+237,United States Minor Outlying Islands,UM,https://datahub.io/core/country-list
+238,Uruguay,UY,https://datahub.io/core/country-list
+239,Uzbekistan,UZ,https://datahub.io/core/country-list
+240,Vanuatu,VU,https://datahub.io/core/country-list
+241,"""Venezuela","Bolivarian Republic of""",https://datahub.io/core/country-list
+242,Viet Nam,VN,https://datahub.io/core/country-list
+243,"""Virgin Islands","British""",https://datahub.io/core/country-list
+244,"""Virgin Islands","U.S.""",https://datahub.io/core/country-list
+245,Wallis and Futuna,WF,https://datahub.io/core/country-list
+246,Western Sahara,EH,https://datahub.io/core/country-list
+247,Yemen,YE,https://datahub.io/core/country-list
+248,Zambia,ZM,https://datahub.io/core/country-list
+249,Zimbabwe,ZW,https://datahub.io/core/country-list
+,,,

@@ -1,0 +1,185 @@
+id,iso_639_1,name,source
+1,aa,Afar,https://datahub.io/core/language-codes
+2,ab,Abkhazian,https://datahub.io/core/language-codes
+3,ae,Avestan,https://datahub.io/core/language-codes
+4,af,Afrikaans,https://datahub.io/core/language-codes
+5,ak,Akan,https://datahub.io/core/language-codes
+6,am,Amharic,https://datahub.io/core/language-codes
+7,an,Aragonese,https://datahub.io/core/language-codes
+8,ar,Arabic,https://datahub.io/core/language-codes
+9,as,Assamese,https://datahub.io/core/language-codes
+10,av,Avaric,https://datahub.io/core/language-codes
+11,ay,Aymara,https://datahub.io/core/language-codes
+12,az,Azerbaijani,https://datahub.io/core/language-codes
+13,ba,Bashkir,https://datahub.io/core/language-codes
+14,be,Belarusian,https://datahub.io/core/language-codes
+15,bg,Bulgarian,https://datahub.io/core/language-codes
+16,bh,Bihari languages,https://datahub.io/core/language-codes
+17,bi,Bislama,https://datahub.io/core/language-codes
+18,bm,Bambara,https://datahub.io/core/language-codes
+19,bn,Bengali,https://datahub.io/core/language-codes
+20,bo,Tibetan,https://datahub.io/core/language-codes
+21,br,Breton,https://datahub.io/core/language-codes
+22,bs,Bosnian,https://datahub.io/core/language-codes
+23,ca,Catalan; Valencian,https://datahub.io/core/language-codes
+24,ce,Chechen,https://datahub.io/core/language-codes
+25,ch,Chamorro,https://datahub.io/core/language-codes
+26,co,Corsican,https://datahub.io/core/language-codes
+27,cr,Cree,https://datahub.io/core/language-codes
+28,cs,Czech,https://datahub.io/core/language-codes
+29,cu,Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic,https://datahub.io/core/language-codes
+30,cv,Chuvash,https://datahub.io/core/language-codes
+31,cy,Welsh,https://datahub.io/core/language-codes
+32,da,Danish,https://datahub.io/core/language-codes
+33,de,German,https://datahub.io/core/language-codes
+34,dv,Divehi; Dhivehi; Maldivian,https://datahub.io/core/language-codes
+35,dz,Dzongkha,https://datahub.io/core/language-codes
+36,ee,Ewe,https://datahub.io/core/language-codes
+37,el,"""Greek",https://datahub.io/core/language-codes
+38,en,English,https://datahub.io/core/language-codes
+39,eo,Esperanto,https://datahub.io/core/language-codes
+40,es,Spanish; Castilian,https://datahub.io/core/language-codes
+41,et,Estonian,https://datahub.io/core/language-codes
+42,eu,Basque,https://datahub.io/core/language-codes
+43,fa,Persian,https://datahub.io/core/language-codes
+44,ff,Fulah,https://datahub.io/core/language-codes
+45,fi,Finnish,https://datahub.io/core/language-codes
+46,fj,Fijian,https://datahub.io/core/language-codes
+47,fo,Faroese,https://datahub.io/core/language-codes
+48,fr,French,https://datahub.io/core/language-codes
+49,fy,Western Frisian,https://datahub.io/core/language-codes
+50,ga,Irish,https://datahub.io/core/language-codes
+51,gd,Gaelic; Scottish Gaelic,https://datahub.io/core/language-codes
+52,gl,Galician,https://datahub.io/core/language-codes
+53,gn,Guarani,https://datahub.io/core/language-codes
+54,gu,Gujarati,https://datahub.io/core/language-codes
+55,gv,Manx,https://datahub.io/core/language-codes
+56,ha,Hausa,https://datahub.io/core/language-codes
+57,he,Hebrew,https://datahub.io/core/language-codes
+58,hi,Hindi,https://datahub.io/core/language-codes
+59,ho,Hiri Motu,https://datahub.io/core/language-codes
+60,hr,Croatian,https://datahub.io/core/language-codes
+61,ht,Haitian; Haitian Creole,https://datahub.io/core/language-codes
+62,hu,Hungarian,https://datahub.io/core/language-codes
+63,hy,Armenian,https://datahub.io/core/language-codes
+64,hz,Herero,https://datahub.io/core/language-codes
+65,ia,Interlingua (International Auxiliary Language Association),https://datahub.io/core/language-codes
+66,id,Indonesian,https://datahub.io/core/language-codes
+67,ie,Interlingue; Occidental,https://datahub.io/core/language-codes
+68,ig,Igbo,https://datahub.io/core/language-codes
+69,ii,Sichuan Yi; Nuosu,https://datahub.io/core/language-codes
+70,ik,Inupiaq,https://datahub.io/core/language-codes
+71,io,Ido,https://datahub.io/core/language-codes
+72,is,Icelandic,https://datahub.io/core/language-codes
+73,it,Italian,https://datahub.io/core/language-codes
+74,iu,Inuktitut,https://datahub.io/core/language-codes
+75,ja,Japanese,https://datahub.io/core/language-codes
+76,jv,Javanese,https://datahub.io/core/language-codes
+77,ka,Georgian,https://datahub.io/core/language-codes
+78,kg,Kongo,https://datahub.io/core/language-codes
+79,ki,Kikuyu; Gikuyu,https://datahub.io/core/language-codes
+80,kj,Kuanyama; Kwanyama,https://datahub.io/core/language-codes
+81,kk,Kazakh,https://datahub.io/core/language-codes
+82,kl,Kalaallisut; Greenlandic,https://datahub.io/core/language-codes
+83,km,Central Khmer,https://datahub.io/core/language-codes
+84,kn,Kannada,https://datahub.io/core/language-codes
+85,ko,Korean,https://datahub.io/core/language-codes
+86,kr,Kanuri,https://datahub.io/core/language-codes
+87,ks,Kashmiri,https://datahub.io/core/language-codes
+88,ku,Kurdish,https://datahub.io/core/language-codes
+89,kv,Komi,https://datahub.io/core/language-codes
+90,kw,Cornish,https://datahub.io/core/language-codes
+91,ky,Kirghiz; Kyrgyz,https://datahub.io/core/language-codes
+92,la,Latin,https://datahub.io/core/language-codes
+93,lb,Luxembourgish; Letzeburgesch,https://datahub.io/core/language-codes
+94,lg,Ganda,https://datahub.io/core/language-codes
+95,li,Limburgan; Limburger; Limburgish,https://datahub.io/core/language-codes
+96,ln,Lingala,https://datahub.io/core/language-codes
+97,lo,Lao,https://datahub.io/core/language-codes
+98,lt,Lithuanian,https://datahub.io/core/language-codes
+99,lu,Luba-Katanga,https://datahub.io/core/language-codes
+100,lv,Latvian,https://datahub.io/core/language-codes
+101,mg,Malagasy,https://datahub.io/core/language-codes
+102,mh,Marshallese,https://datahub.io/core/language-codes
+103,mi,Maori,https://datahub.io/core/language-codes
+104,mk,Macedonian,https://datahub.io/core/language-codes
+105,ml,Malayalam,https://datahub.io/core/language-codes
+106,mn,Mongolian,https://datahub.io/core/language-codes
+107,mr,Marathi,https://datahub.io/core/language-codes
+108,ms,Malay,https://datahub.io/core/language-codes
+109,mt,Maltese,https://datahub.io/core/language-codes
+110,my,Burmese,https://datahub.io/core/language-codes
+111,na,Nauru,https://datahub.io/core/language-codes
+112,nb,"""Bokmål",https://datahub.io/core/language-codes
+113,nd,"""Ndebele",https://datahub.io/core/language-codes
+114,ne,Nepali,https://datahub.io/core/language-codes
+115,ng,Ndonga,https://datahub.io/core/language-codes
+116,nl,Dutch; Flemish,https://datahub.io/core/language-codes
+117,nn,"""Norwegian Nynorsk; Nynorsk",https://datahub.io/core/language-codes
+118,no,Norwegian,https://datahub.io/core/language-codes
+119,nr,"""Ndebele",https://datahub.io/core/language-codes
+120,nv,Navajo; Navaho,https://datahub.io/core/language-codes
+121,ny,Chichewa; Chewa; Nyanja,https://datahub.io/core/language-codes
+122,oc,Occitan (post 1500); Provençal,https://datahub.io/core/language-codes
+123,oj,Ojibwa,https://datahub.io/core/language-codes
+124,om,Oromo,https://datahub.io/core/language-codes
+125,or,Oriya,https://datahub.io/core/language-codes
+126,os,Ossetian; Ossetic,https://datahub.io/core/language-codes
+127,pa,Panjabi; Punjabi,https://datahub.io/core/language-codes
+128,pi,Pali,https://datahub.io/core/language-codes
+129,pl,Polish,https://datahub.io/core/language-codes
+130,ps,Pushto; Pashto,https://datahub.io/core/language-codes
+131,pt,Portuguese,https://datahub.io/core/language-codes
+132,qu,Quechua,https://datahub.io/core/language-codes
+133,rm,Romansh,https://datahub.io/core/language-codes
+134,rn,Rundi,https://datahub.io/core/language-codes
+135,ro,Romanian; Moldavian; Moldovan,https://datahub.io/core/language-codes
+136,ru,Russian,https://datahub.io/core/language-codes
+137,rw,Kinyarwanda,https://datahub.io/core/language-codes
+138,sa,Sanskrit,https://datahub.io/core/language-codes
+139,sc,Sardinian,https://datahub.io/core/language-codes
+140,sd,Sindhi,https://datahub.io/core/language-codes
+141,se,Northern Sami,https://datahub.io/core/language-codes
+142,sg,Sango,https://datahub.io/core/language-codes
+143,si,Sinhala; Sinhalese,https://datahub.io/core/language-codes
+144,sk,Slovak,https://datahub.io/core/language-codes
+145,sl,Slovenian,https://datahub.io/core/language-codes
+146,sm,Samoan,https://datahub.io/core/language-codes
+147,sn,Shona,https://datahub.io/core/language-codes
+148,so,Somali,https://datahub.io/core/language-codes
+149,sq,Albanian,https://datahub.io/core/language-codes
+150,sr,Serbian,https://datahub.io/core/language-codes
+151,ss,Swati,https://datahub.io/core/language-codes
+152,st,"""Sotho",https://datahub.io/core/language-codes
+153,su,Sundanese,https://datahub.io/core/language-codes
+154,sv,Swedish,https://datahub.io/core/language-codes
+155,sw,Swahili,https://datahub.io/core/language-codes
+156,ta,Tamil,https://datahub.io/core/language-codes
+157,te,Telugu,https://datahub.io/core/language-codes
+158,tg,Tajik,https://datahub.io/core/language-codes
+159,th,Thai,https://datahub.io/core/language-codes
+160,ti,Tigrinya,https://datahub.io/core/language-codes
+161,tk,Turkmen,https://datahub.io/core/language-codes
+162,tl,Tagalog,https://datahub.io/core/language-codes
+163,tn,Tswana,https://datahub.io/core/language-codes
+164,to,Tonga (Tonga Islands),https://datahub.io/core/language-codes
+165,tr,Turkish,https://datahub.io/core/language-codes
+166,ts,Tsonga,https://datahub.io/core/language-codes
+167,tt,Tatar,https://datahub.io/core/language-codes
+168,tw,Twi,https://datahub.io/core/language-codes
+169,ty,Tahitian,https://datahub.io/core/language-codes
+170,ug,Uighur; Uyghur,https://datahub.io/core/language-codes
+171,uk,Ukrainian,https://datahub.io/core/language-codes
+172,ur,Urdu,https://datahub.io/core/language-codes
+173,uz,Uzbek,https://datahub.io/core/language-codes
+174,ve,Venda,https://datahub.io/core/language-codes
+175,vi,Vietnamese,https://datahub.io/core/language-codes
+176,vo,Volapük,https://datahub.io/core/language-codes
+177,wa,Walloon,https://datahub.io/core/language-codes
+178,wo,Wolof,https://datahub.io/core/language-codes
+179,xh,Xhosa,https://datahub.io/core/language-codes
+180,yi,Yiddish,https://datahub.io/core/language-codes
+181,yo,Yoruba,https://datahub.io/core/language-codes
+182,za,Zhuang; Chuang,https://datahub.io/core/language-codes
+183,zh,Chinese,https://datahub.io/core/language-codes
+184,zu,Zulu,https://datahub.io/core/language-codes
