@@ -1,6 +1,7 @@
 from ConnectionBase import ConnectionBase
 import pandas as pd
 import os
+import ETLUtil as etl
 
 class CSVConnection(ConnectionBase):
     def __init__(self, save_location):
@@ -68,4 +69,19 @@ class CSVConnection(ConnectionBase):
         return df
 
     def get_source_data(self, data_mapping):
-        pass
+        source_columns = data_mapping['source_field'].values
+        end_columns = data_mapping['end_field'].values
+        end_data_types = data_mapping['end_data_type'].values
+        # json will need to be unpacked after loading initial dataframe
+        table = data_mapping['source_table'].iloc[0]
+        file_name = f'{self.save_location}/{table}}/{table}}.csv'
+        # json will need to be unpacked into initial dataframe
+        if 'json' in data_mapping['source_data_type'].values:
+            data_dict = etl.read_csv_to_dict(file_name)
+            to_unpack = (data_mapping.loc[df['source_data_type']=='json'])['source_field'].values
+            not_to_unpack = etl.differance_between_lists(source_columns, to_unpack)
+            to_unpack = list(set([x.split('.')[0] for x in to_unpack]))
+            df = json_normalize(data=data_dict, record_path=to_unpack, meta=not_to_unpack)
+        else:
+            df = pd.read_csv(file_name, usecols=source_columns, dtype=pd.Series(end_data_types,index=source_columns).to_dict())
+        return df.rename(columns=pd.Series(end_columns,index=source_columns).to_dict())

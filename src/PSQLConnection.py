@@ -97,7 +97,7 @@ class PSQLConnection(ConnectionBase):
             else:
                 column = f'CAST("{row["source_field"]}" as {row["end_data_type"]}) as "{row[end_field]}"'
             columns.append(column)
-        query += ', '.join(columns) + " FROM " + data_mapping['source_schema'].iloc[0] + '.' + data_mapping['source_table'].iloc[0]} + " ;"
+        query += ', '.join(columns) + " FROM " + data_mapping['source_schema'].iloc[0] + '.' + data_mapping['source_table'].iloc[0] + " ;"
         return self._query_to_df(query)
 
     def _get_insert_statment_from_df(self, df, schema, table_name):
