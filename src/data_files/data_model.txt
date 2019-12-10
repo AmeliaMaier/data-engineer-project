@@ -1,0 +1,360 @@
+CREATE TABLE "movies" (
+  "id" serial bigint,
+  "movie_id" bigint,
+  "title" strintextg,
+  "adult" boolean,
+  "budget" bigint,
+  "homepage" text,
+  "original_language" text,
+  "original_title" text,
+  "overview" text,
+  "popularity" decimal,
+  "poster_path" text,
+  "release_date" date,
+  "revenue" bigint,
+  "runtime" int,
+  "tagline" text,
+  "video" boolean,
+  "vote_average" decimal,
+  "vote_count" bigint,
+  "status" text,
+  "created_date" timestamp,
+  "deleted_date" timestamp,
+  "deleted" boolean,
+  "file_id" bigint
+);
+
+CREATE TABLE "movie_cast_members" (
+  "cast_member_id" bigint,
+  "movie_id" bigint,
+  "created_date" timestamp,
+  "deleted_date" timestamp,
+  "deleted" boolean,
+  "id" serial bigint,
+  "file_id" bigint,
+  "cast_id" bigint,
+  "character" text,
+  "credit_id" text,
+  "credit_order" bigint
+);
+
+CREATE TABLE "movie_collections" (
+  "collection_id" bigint,
+  "movie_id" bigint,
+  "created_date" timestamp,
+  "deleted_date" timestamp,
+  "deleted" boolean,
+  "id" serial bigint,
+  "file_id" bigint
+);
+
+CREATE TABLE "src_ratings" (
+  "file_id" bigint,
+  "created_date" timestamp,
+  "userId" bigint,
+  "movieId" bigint,
+  "rating" text,
+  "timestamp" timestamp,
+  "transformed_movie_ratings" boolean
+);
+
+CREATE TABLE "movie_keywords" (
+  "keyword_id" bigint,
+  "movie_id" bigint,
+  "created_date" timestamp,
+  "deleted_date" timestamp,
+  "deleted" boolean,
+  "id" serial bigint,
+  "file_id" bigint
+);
+
+CREATE TABLE "file" (
+  "name" text,
+  "id" serial bigint,
+  "ingested_date" timestamp
+);
+
+CREATE TABLE "src_links" (
+  "file_id" bigint,
+  "created_date" timestamp,
+  "movieId" bigint,
+  "imdbId" text,
+  "tmdbId" text,
+  "transformed_movie_links" boolean
+);
+
+CREATE TABLE "movie_ratings" (
+  "rater_id" bigint,
+  "movie_id" bigint,
+  "created_date" timestamp,
+  "deleted_date" timestamp,
+  "deleted" boolean,
+  "id" serial bigint,
+  "file_id" bigint,
+  "rating" decimal,
+  "rating_timestamp" timestamp
+);
+
+CREATE TABLE "src_movies_metadata" (
+  "file_id" bigint,
+  "created_date" timestamp,
+  "adult" text,
+  "belongs_to_collection" text,
+  "budget" text,
+  "genre" text,
+  "homepage" text,
+  "id" bigint,
+  "imdb_id" text,
+  "original_language" text,
+  "original_title" text,
+  "overview" text,
+  "popularity" text,
+  "poster_path" text,
+  "production_company" text,
+  "production_countries" text,
+  "release_date" text,
+  "revenue" text,
+  "runtime" text,
+  "spoken_languages" text,
+  "status" text,
+  "tagline" text,
+  "title" text,
+  "video" text,
+  "vote_average" text,
+  "vote_count" text,
+  "transformed_movies" boolean,
+  "transformed_collections" boolean,
+  "transformed_genres" boolean,
+  "transformed_production_companies" boolean,
+  "transformed_movie_collections" boolean,
+  "transformed_movie_genres" boolean,
+  "transformed_movie_production_companies" boolean,
+  "transformed_movie_production_countries" boolean,
+  "transformed_movie_spoken_languages" boolean
+);
+
+CREATE TABLE "movie_genres" (
+  "genre_id" bigint,
+  "movie_id" bigint,
+  "created_date" timestamp,
+  "deleted_date" timestamp,
+  "deleted" boolean,
+  "id" serial bigint,
+  "file_id" bigint
+);
+
+CREATE TABLE "spoken_languages" (
+  "id" serial bigint,
+  "iso_639_1" text,
+  "name" text,
+  "source" text
+);
+
+CREATE TABLE "genres" (
+  "id" bigint,
+  "name" text,
+  "created_date" timestamp,
+  "first_file_id" bigint
+);
+
+CREATE TABLE "collections" (
+  "id" bigint,
+  "name" text,
+  "created_date" timestamp,
+  "poster_path" text,
+  "backdrop_path" text,
+  "first_file_id" bigint
+);
+
+CREATE TABLE "movie_production_countries" (
+  "production_country_id" bigint,
+  "movie_id" bigint,
+  "created_date" timestamp,
+  "deleted_date" timestamp,
+  "deleted" boolean,
+  "id" serial bigint,
+  "file_id" bigint
+);
+
+CREATE TABLE "movie_production_companies" (
+  "production_company_id" bigint,
+  "movie_id" bigint,
+  "created_date" timestamp,
+  "deleted_date" timestamp,
+  "deleted" boolean,
+  "id" serial bigint,
+  "file_id" bigint
+);
+
+CREATE TABLE "movie_crew_members" (
+  "crew_member_id" bigint,
+  "movie_id" bigint,
+  "created_date" timestamp,
+  "deleted_date" timestamp,
+  "deleted" boolean,
+  "id" serial bigint,
+  "file_id" bigint,
+  "department" text,
+  "job" text,
+  "credit_id" text
+);
+
+CREATE TABLE "cast_member" (
+  "id" bigint,
+  "name" text,
+  "gender" int,
+  "profile_path" text,
+  "created_date" timestamp,
+  "first_file_id" bigint
+);
+
+CREATE TABLE "production_countries" (
+  "id" serial bigint,
+  "iso_3166_1" text,
+  "name" text,
+  "source" text
+);
+
+CREATE TABLE "crew_member" (
+  "id" bigint,
+  "name" text,
+  "gender" int,
+  "profile_path" text,
+  "created_date" timestamp,
+  "first_file_id" bigint
+);
+
+CREATE TABLE "production_companies" (
+  "id" bigint,
+  "name" text,
+  "created_date" timestamp,
+  "first_file_id" bigint
+);
+
+CREATE TABLE "keywords" (
+  "id" bigint,
+  "name" text,
+  "created_date" timestamp,
+  "first_file_id" bigint
+);
+
+CREATE TABLE "src_credits" (
+  "file_id" bigint,
+  "created_date" timestamp,
+  "cast" text,
+  "crew" text,
+  "id" bigint,
+  "transformed_cast_members" boolean,
+  "transformed_crew_members" boolean,
+  "transformed_movie_cast_members" boolean,
+  "transformed_movie_crew_members" boolean
+);
+
+CREATE TABLE "src_keywords" (
+  "file_id" bigint,
+  "created_date" timestamp,
+  "id" bigint,
+  "keywords" text,
+  "transformed_keywords" boolean,
+  "transformed_movie_keywords" boolean
+);
+
+CREATE TABLE "movie_spoken_languages" (
+  "spoken_language_id" bigint,
+  "movie_id" bigint,
+  "created_date" timestamp,
+  "deleted_date" timestamp,
+  "deleted" boolean,
+  "id" serial bigint,
+  "file_id" bigint
+);
+
+CREATE TABLE "movie_score_report" (
+  "movie_id" bigint,
+  "movie_name" text,
+  "reported_vote_average" decimal,
+  "reported_vote_count" bigint,
+  "calculated_vote_average" decimal,
+  "calculated_vote_count" bigint,
+  "movie_score" decimal
+);
+
+CREATE TABLE "production_company_movies_report" (
+  "production_company_id" bigint,
+  "production_company_name" text,
+  "movie_id" bigint,
+  "movie_name" text,
+  "profit" decimal,
+  "revenue" decimal,
+  "budget" decimal,
+  "release_date" date
+);
+
+CREATE TABLE "production_company_report" (
+  "production_company_id" bigint,
+  "production_company_name" text,
+  "year" int,
+  "profit" decimal,
+  "revenue" decimal,
+  "budget" decimal,
+  "average_popularity" decimal
+);
+
+CREATE TABLE "production_company_genre_report" (
+  "production_company_id" bigint,
+  "production_company_name" text,
+  "year" int,
+  "genre_id" bigint,
+  "genre_name" text,
+  "release_count" int,
+  "profit" decimal,
+  "revenue" decimal,
+  "budget" decimal,
+  "average_popularity" decimal
+);
+
+CREATE TABLE "movie_genre_report" (
+  "movie_id" bigint,
+  "movie_name" text,
+  "genre_id" bigint,
+  "genre_name" text,
+  "profit" decimal,
+  "revenue" decimal,
+  "budget" decimal,
+  "release_date" date
+);
+
+CREATE TABLE "genre_report" (
+  "genre_id" bigint,
+  "genre_name" text,
+  "year" int,
+  "profit" decimal,
+  "revenue" decimal,
+  "budget" decimal,
+  "average_popularity" decimal
+);
+
+CREATE TABLE "movie_links" (
+  "movie_id" bigint,
+  "created_date" timestamp,
+  "deleted_date" timestamp,
+  "deleted" boolean,
+  "id" serial bigint,
+  "file_id" bigint,
+  "imdb_id" bigint,
+  "tmdb_id" bigint
+);
+
+CREATE TABLE "data_mapping" (
+  "end_schema" text,
+  "end_table" text,
+  "end_field" text,
+  "end_data_type" text,
+  "table_type" text,
+  "unique" boolean,
+  "source_schema" text,
+  "source_table" text,
+  "source_field" text,
+  "source_data_type" text
+);
+
