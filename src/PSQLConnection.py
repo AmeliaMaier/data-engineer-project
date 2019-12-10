@@ -77,6 +77,29 @@ class PSQLConnection(ConnectionBase):
         insert_statement += ';'
         self._simple_execute(insert_statement, var_dict)
 
+    def get_data_mapping(self, mapping_schema, end_schema, end_table_name):
+        query = '''SELECT * FROM %(mapping_schema)s.data_mapping
+                    WHERE "end_schema" = %(end_schema)s
+                    AND "end_table" = %(end_table_name)s;'''
+        var_dict = {'mapping_schema': mapping_schema, 'end_schema': end_schema, 'end_table_name': end_table_name}
+        return self._query_to_df(query, var_dict)
+
+    def get_source_data(self, data_mapping):
+        """
+        This assumes that only one source feeds to each table, as per design to 
+        all for full tracking of data from start to end.
+        """
+        query = 'SELCT '
+        columns = []
+        for index, row in data_mapping.iterrows():
+            if row['source_data_type'] == 'json':
+                column = f"CAST(SPLIT_PART({row['source_field']}, '.', 1) ->>'SPLIT_PART({row['source_field']}, '.', 2)' as {row['end_data_type']}) as \"{row[end_field]}\""
+            else:
+                column = f'CAST("{row["source_field"]}" as {row["end_data_type"]}) as "{row[end_field]}"'
+            columns.append(column)
+        query += ', '.join(columns) + " FROM " + data_mapping['source_schema'].iloc[0] + '.' + data_mapping['source_table'].iloc[0]} + " ;"
+        return self._query_to_df(query)
+
     def _get_insert_statment_from_df(self, df, schema, table_name):
         columns = self._get_column_statment_from_df(df)
         value_statment, var_dict = self._get_value_statement_from_df(df)
@@ -114,18 +137,18 @@ class PSQLConnection(ConnectionBase):
         values = ', '.join(values_statement)
         return values, var_dict
 
-    def _query_to_df(self, query_str, var_dict):
+    def _query_to_df(self, query_str, var_dict=None):
         df = pd.read_sql_query(query_str, self.conn, params=var_dict)
         return df
 
-    def _query_to_dict(self, query_str, var_dict):
+    def _query_to_dict(self, query_str, var_dict=None):
         cur = self.conn.cursor(cursor_factory = psycopg2.extras.DictCursor)
         cur.execute(query_str, var_dict)
         results = cur.fetchall()
         self.curser = conn.cursor()
         return results
 
-    def _simple_execute(self, query_str, var_dict):
+    def _simple_execute(self, query_str, var_dict=None):
         self.curser.execute(query_str, var_dict)
         self.conn.commit()
 

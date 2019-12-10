@@ -62,4 +62,10 @@ class CSVConnection(ConnectionBase):
         else:
             df.to_csv(file_name, index=False, mode='a', header=False)
 
+    def get_data_mapping(self, mapping_schema, end_schema, end_table_name):
+        df = pd.read_csv(f'{self.save_location}/data_mapping/data_mapping.csv')
+        df = df.loc[(df['end_schema'] = end_schema) & (df['end_table'] = end_table_name)]
+        return df
 
+    def get_source_data(self, data_mapping):
+        pass

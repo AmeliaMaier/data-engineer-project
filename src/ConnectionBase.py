@@ -17,3 +17,9 @@ class ConnectionBase:
 
     def append_to_table(self, df, schema, table_name):
         pass
+
+    def get_data_mapping(self, mapping_schema, end_schema, end_table_name):
+        pass
+
+    def get_source_data(self, data_mapping):
+        pass

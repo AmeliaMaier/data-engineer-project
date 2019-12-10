@@ -23,27 +23,27 @@ def main():
     # load_csv('ratings_small.csv', 'schema', 'src_ratings', csv_file_path, connection)
 
     # step 1 in load_tables
-    load_table('movies')
-    load_table('collections')
-    load_table('genres')
-    load_table('production_companies')
+    load_table('null','movies', connection)
+    load_table('null','collections', connection)
+    load_table('null','genres', connection)
+    load_table('null','production_companies', connection)
     # these two not needed because international standards should be filled in already
     # load_table('production_countries') 
     # load_table('spoken_languages')
-    load_table('keywords')
-    load_table('cast_members')
-    load_table('crew_members')
+    load_table('null','keywords', connection)
+    load_table('null','cast_members', connection)
+    load_table('null','crew_members', connection)
     # step 2 in load_tables
-    load_table('movie_collections')
-    load_table('movie_genres')
-    load_table('movie_production_companies')
-    load_table('movie_production_countries')
-    load_table('movie_spoken_languages')
-    load_table('movie_keywords')
-    load_table('movie_ratings')
-    load_table('movie_cast_members')
-    load_table('movie_crew_members')
-    load_table('movie_links')
+    load_table('null','movie_collections', connection)
+    load_table('null','movie_genres', connection)
+    load_table('null','movie_production_companies', connection)
+    load_table('null','movie_production_countries', connection)
+    load_table('null','movie_spoken_languages', connection)
+    load_table('null','movie_keywords', connection)
+    load_table('null','movie_ratings', connection)
+    load_table('null','movie_cast_members', connection)
+    load_table('null','movie_crew_members', connection)
+    load_table('null','movie_links', connection)
 
 
 def load_csv(csv_name, schema, table_name, file_path, connection):
@@ -89,7 +89,9 @@ def load_csv(csv_name, schema, table_name, file_path, connection):
 
 def load_table(schema, table_name, connection):
     # load data mapping for given table
+    data_mapping = connection.get_data_mapping('mapping_schema', schema, table_name)
     # load source data for new table
+    source_data = connection.get_source_data(data_mapping)
     # basic data cleaning (casting to correct type)
     # write out data
     # if type delete, check for returned conflicts
