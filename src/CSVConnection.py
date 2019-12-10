@@ -1,5 +1,6 @@
 from ConnectionBase import ConnectionBase
 import pandas as pd
+import os
 
 class CSVConnection(ConnectionBase):
     def __init__(self, save_location):
@@ -36,7 +37,29 @@ class CSVConnection(ConnectionBase):
         else:
             raise RuntimeError(f'CSVConnection.get_column_types: Table name [{table_name}] not recognized.')
 
-    def append_to_table_return_ids(df, schema, table_name, id_column_name):
-        pass
+    def append_to_table_return_ids(self, df, schema, table_name, id_column_name):
+        if table_name = 'file':
+            # a special cases that is complicated with writing to csv since need a unique id back
+            # with open instead of just pd.read_csv to ensure file exists
+            file_name = f'{self.save_location}/{table_name}/{table_name}.csv'
+            if not os.path.exists(file_name):
+                pd.DataFrame(columns=df.columns+[id_column_name]).to_csv(file_name, index=False)
+            df_old = pd.read_csv(file_name)
+            # since can't rely on db to add id automatically, we have to create it and make sure it isn't already used
+            if len(df_old.index) == 0:
+                df[id_column_name] = list(range(1:len(df.index)+1))
+            else:
+                df[id_column_name] = list(range(int(df_old[id_column_name].iloc[-1]):(int(df_old[id_column_name].iloc[-1])+len(df.index)+1)))
+            df.to_csv(file_name, index=False, mode='a', header=False)
+            return df
+        else:
+            pass # will fill in if is needed
+
+    def append_to_table(self, df, schema, table_name):
+        file_name = f'{self.save_location}/{table_name}/{table_name}.csv'
+        if not os.path.exists(file_name):
+            df.to_csv(file_name, index=False)
+        else:
+            df.to_csv(file_name, index=False, mode='a', header=False)
 
 

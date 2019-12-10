@@ -12,5 +12,8 @@ class ConnectionBase:
     def get_column_types(self, schema, table_name):
         pass
 
-    def append_to_table_return_ids(df, schema, table_name, id_column_name):
+    def append_to_table_return_ids(self, df, schema, table_name, id_column_name):
+        pass
+
+    def append_to_table(self, df, schema, table_name):
         pass

@@ -1,5 +1,7 @@
 from ConnectionHelper import getConnection
 import ETLUtil as etl
+import pandas as pd
+from datetime import datetime
 
 def main():
     """
@@ -46,9 +48,13 @@ def load_csv(csv_name, schema, table_name, file_path, connection):
             # read in csv without allowing autotyping
             data = etl.read_csv_types_assigned(f'{file_path}{csv_name}', connection.get_column_types(schema, table_name)) 
             # write out file metadata
-            file_info = pd.DataFrame({'name': csv_name})
-            connection.append_to_table_return_ids(file_info, schema, table_name, 'id')
+            file_info = pd.DataFrame({'name': csv_name, 'ingested_date': datetime.now()})
+            file_info = connection.append_to_table_return_ids(file_info, schema, table_name, 'id')
             # write out file data
+            data['file_id'] = file_info['id'].iloc[-1]
+            data['created_date'] = datetime.now() # this would be defaulted if writing directly to psql
+            data['transformed'] = False # this would be defaulted if writing directly to psql
+            connection.append_to_table(data, schema, table_name)
         else:
             raise RuntimeError(f'Main.load_csv: Table name [{table_name}] in schema [{schema}] not found. Injestions of file [{csv_name}] at [{file_path}] stopped.')
     except Exception as err:
