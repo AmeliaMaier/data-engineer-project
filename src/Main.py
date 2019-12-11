@@ -12,17 +12,20 @@ def main():
         It would also call all microservices that can overlap at once to increase system speed.
     """
     csv_file_path = 'data_files'
+    result_file_path = 'data_files/results'
+    source_backup_path = 'data_files/source_backup'
+
     connection = getConnection('CSV', dbname=csv_file_path)
     # load_csvs can happen in any order
-    load_csv('movies_metadata.csv', 'schema', 'src_movies_metadata', csv_file_path, connection)
-    load_csv('credits.csv', 'schema', 'src_credits', csv_file_path, connection)
-    load_csv('keywords.csv', 'schema', 'src_keywords', csv_file_path, connection)
+    load_csv('movies_metadata.csv', result_file_path, 'src_movies_metadata', csv_file_path, source_backup_path, connection)
+    load_csv('credits.csv', result_file_path, 'src_credits', csv_file_path, source_backup_path, connection)
+    load_csv('keywords.csv', result_file_path, 'src_keywords', csv_file_path, source_backup_path, connection)
     # testing with the smaller versions
-    # load_csv('links.csv', 'schema', 'src_links', csv_file_path, connection)
-    # load_csv('ratings.csv', 'schema', 'src_ratings', csv_file_path, connection)
+    # load_csv('links.csv', result_file_path, 'src_links', csv_file_path, source_backup_path, connection)
+    # load_csv('ratings.csv', result_file_path, 'src_ratings', csv_file_path, source_backup_path, connection)
     # leaving these out under assumption they are subset of larger files.
-    load_csv('links_small.csv', 'schema', 'src_links', csv_file_path, connection)
-    load_csv('ratings_small.csv', 'schema', 'src_ratings', csv_file_path, connection)
+    load_csv('links_small.csv', result_file_path, 'src_links', csv_file_path, source_backup_path, connection)
+    load_csv('ratings_small.csv', result_file_path, 'src_ratings', csv_file_path, source_backup_path, connection)
 
     # step 1 in load_tables
     load_table('null','movies', connection)
@@ -48,7 +51,7 @@ def main():
     load_table('null','movie_links', connection)
 
 
-def load_csv(csv_name, schema, table_name, file_path, connection):
+def load_csv(csv_name, schema, table_name, src_file_path, source_backup_path, connection):
     """
         This method reads in the raw source data, saves the file metadata, 
         and saves the source data with as little change as possible.
@@ -73,18 +76,20 @@ def load_csv(csv_name, schema, table_name, file_path, connection):
     try:
         if connection.table_exists(schema, table_name):
             # read in csv without allowing autotyping
-            data = etl.read_csv_types_assigned(f'{file_path}/{csv_name}', connection.get_column_types(schema, table_name))
+            data = etl.read_csv_types_assigned(f'{src_file_path}/{csv_name}', connection.get_column_types(schema, table_name))
             # write out file metadata
             file_info = pd.DataFrame({'name': [csv_name], 'ingested_date': [datetime.now()]})
             file_info = connection.append_to_table_return_ids(file_info, schema, 'file', 'id')
             # write out file data
             data['file_id'] = file_info['id'].iloc[-1]
-            # this section would be defaulted in the database in a real system
+            # this section of column additions would be defaulted in the database in a real system
             data['created_date'] = datetime.now() 
             data = _get_transformed_columns(data, table_name) 
             connection.append_to_table(data, schema, table_name)
+            # move source file to save location
+
         else:
-            raise RuntimeError(f'Main.load_csv: Table name [{table_name}] in schema [{schema}] not found. Injestions of file [{csv_name}] at [{file_path}] stopped.')
+            raise RuntimeError(f'Main.load_csv: Table name [{table_name}] in schema [{schema}] not found. Injestions of file [{csv_name}] at [{src_file_path}] stopped.')
     except Exception as err:
         raise RuntimeError(f"Main.load_csv: {err}")
 
@@ -93,7 +98,7 @@ def load_table(schema, table_name, connection):
     if not connection.table_exists(table_name):
         raise RuntimeError(f'Main.load_table: Table [{table_name}] needed to write out not found.')
     # load data mapping for given table
-    data_mapping = connection.get_data_mapping('mapping_schema', schema, table_name)
+    data_mapping = connection.get_data_mapping(schema, schema, table_name)
     # load source data for new table
     source_data = connection.get_source_data(data_mapping)
     # basic data cleaning (casting to correct type) being done durring read in
