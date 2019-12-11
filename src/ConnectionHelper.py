@@ -1,6 +1,6 @@
 import psycopg2
-from CSVConnection import CSVConnection
-from PSQLConnection import PSQLConnection
+from src.CSVConnection import CSVConnection
+from src.PSQLConnection import PSQLConnection
 
 def getConnection(type, user_name=None, password=None, dbname=None, host=None):
     """

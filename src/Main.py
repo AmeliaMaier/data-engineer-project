@@ -1,7 +1,8 @@
-from ConnectionHelper import getConnection
-import ETLUtil as etl
+from src.ConnectionHelper import getConnection
+from src import ETLUtil as etl
 import pandas as pd
 from datetime import datetime
+
 
 def main():
     """
