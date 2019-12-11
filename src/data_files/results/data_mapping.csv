@@ -24,8 +24,8 @@ data_files/results,collections,name,str,append,data_files/results,src_movies_met
 data_files/results,collections,poster_path,str,append,data_files/results,src_movies_metadata,belongs_to_collection.poster_path,json
 data_files/results,collections,backdrop_path,str,append,data_files/results,src_movies_metadata,belongs_to_collection.backdrop_path,json
 data_files/results,collections,first_file_id,bigint,append,data_files/results,src_movies_metadata,file_id,bigint
-data_files/results,genres,id,bigint,append,data_files/results,src_movies_metadata,genre.id,json
-data_files/results,genres,name,str,append,data_files/results,src_movies_metadata,genre.name,json
+data_files/results,genres,id,bigint,append,data_files/results,src_movies_metadata,genres.id,json
+data_files/results,genres,name,str,append,data_files/results,src_movies_metadata,genres.name,json
 data_files/results,genres,first_file_id,bigint,append,data_files/results,src_movies_metadata,file_id,bigint
 data_files/results,production_companies,id,bigint,append,data_files/results,src_movies_metadata,production_companies.id,bigint
 data_files/results,production_companies,name,str,append,data_files/results,src_movies_metadata,production_companies.name,str
@@ -46,7 +46,7 @@ data_files/results,crew_members,first_file_id,bigint,append,data_files/results,s
 data_files/results,movie_collections,collection_id,bigint,append,data_files/results,src_movies_metadata,belongs_to_collection.id,json
 data_files/results,movie_collections,movie_id,bigint,append,data_files/results,src_movies_metadata,id,bigint
 data_files/results,movie_collections,file_id,bigint,append,data_files/results,src_movies_metadata,file_id,bigint
-data_files/results,movie_genres,genre_id,bigint,append,data_files/results,src_movies_metadata,genre.id,json
+data_files/results,movie_genres,genre_id,bigint,append,data_files/results,src_movies_metadata,genres.id,json
 data_files/results,movie_genres,movie_id,bigint,append,data_files/results,src_movies_metadata,id,bigint
 data_files/results,movie_genres,file_id,bigint,append,data_files/results,src_movies_metadata,file_id,bigint
 data_files/results,movie_production_companies,production_company_id,bigint,append,data_files/results,src_movies_metadata,production_companies.id,json

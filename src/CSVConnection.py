@@ -41,7 +41,11 @@ class CSVConnection(ConnectionBase):
         else:
             pass # will fill in if is needed
 
-    def append_to_table(self, df, schema, table_name):
+    def append_to_table(self, df, schema, table_name, on_conflict='append'):
+        '''
+        Since this class is only intended to be used for the initial historical data, it ignores the on conflict data.
+        See assumptions.
+        '''
         file_name = f'{schema}/{table_name}.csv'
         if not os.path.exists(file_name):
             df.to_csv(file_name, index=False)
@@ -63,14 +67,23 @@ class CSVConnection(ConnectionBase):
         file_name = f'{schema}/{table}.csv'
         # json will need to be unpacked into initial dataframe
         if 'json' in data_mapping['source_data_type'].values:
-            data_dict = etl.read_csv_to_dict(file_name)
             to_unpack = (data_mapping.loc[data_mapping['source_data_type']=='json'])['source_field'].values
             not_to_unpack = etl.differance_between_lists(source_columns, to_unpack)
-            to_unpack = list(set([x.split('.')[0] for x in to_unpack]))
-            df = json_normalize(data=data_dict, record_path=to_unpack, meta=not_to_unpack)
+            unpack_limited = list(set([x.split('.')[0] for x in to_unpack]))
+            source_data = pd.read_csv(file_name, usecols=not_to_unpack+unpack_limited)
+            expected_columns = list(set([x.split('.')[1] for x in to_unpack]))
+            for unpack in unpack_limited:
+                source_data = etl.flatten_dataframe_column(source_data, unpack, not_to_unpack)
         else:
-            df = pd.read_csv(file_name, usecols=source_columns, dtype=pd.Series(end_data_types,index=source_columns).to_dict())
-        return df.rename(columns=pd.Series(end_columns,index=source_columns).to_dict())
+            source_data = pd.read_csv(file_name, usecols=source_columns)
+        source_data.rename(columns=dict(zip(source_columns, end_columns)), inplace=True)
+        source_data.drop_duplicates(inplace=True)
+        return source_data[end_columns]
 
-    def insert_with_conflict(self, df, data_mapping, schema, table_name):
-        pass
+    def update_source_table(self, source_data, data_mapping):
+        table_transformed = data_mapping["end_table"].values[-1]
+        table_to_update = data_mapping["source_table"].values[-1]
+        schema_to_update = data_mapping["source_schema"].values[-1]
+        old_source = pd.read_csv(f'{schema_to_update}/{table_to_update}.csv')
+        old_source[f'transformed_{table_transformed}'] = True
+        old_source.to_csv(f'{schema_to_update}/{table_to_update}.csv', index=False)

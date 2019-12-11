@@ -69,16 +69,16 @@ class PSQLConnection(ConnectionBase):
         var_dict['id_column_name'] = id_column_name
         return self._query_to_df(query, var_dict)
 
-    def append_to_table(self, df, schema, table_name, on_conflict='nothing'):
+    def append_to_table(self, df, schema, table_name, on_conflict='append'):
         """
         Simple append statement, not taking upsert or confilicts into account yet.
         """
         insert_statement, var_dict = self._get_insert_statment_from_df(df, schema, table_name)
         if on_conflict == 'delete':
-            insert_statement += 'ON CONFLICT("user", "contact") DO UPDATE SET deleted=TRUE, deleted_date=now() RETURNING id;'
+            insert_statement += f'ON CONFLICT(unique_{table_name}) DO UPDATE SET deleted=TRUE, deleted_date=now() RETURNING {table_name}_id;'
             return self._query_to_df(insert_statement, var_dict)
         else:
-            insert_statement += ' ON CONFLICT ("id") DO NOTHING;'
+            insert_statement += f' ON CONFLICT (unique_{table_name}) DO NOTHING;'
             self._simple_execute(insert_statement, var_dict)
 
     def get_data_mapping(self, mapping_schema, end_schema, end_table_name):
@@ -106,6 +106,22 @@ class PSQLConnection(ConnectionBase):
                     WHERE \"transformed_{data_mapping['end_table'].iloc[0]}\" IS FALSE;"""
         return self._query_to_df(query)
 
+    def update_source_table(self, source_data, data_mapping):
+        ids_to_update = set(source_data['id'].values)
+        file_ids_to_update = set(source_data['file_id'].values)
+        column_to_update = f'transformed_{source_data["end_table"].iloc[0]}'
+        table_to_update = source_data["source_table"].iloc[0]
+        schema_to_update = source_data["source_schema"].iloc[0]
+        '%(end_schema)s'
+        query = """UPDATE %(schema_to_update)s.%(table_to_update)s
+                        SET \"%(column_to_update)s\" = TRUE
+                        WHERE
+                           \"id\" in %(ids_to_update)s
+                           AND \"file_id\" in %(file_ids_to_update)s;"""
+        var_dict = {'ids_to_update': tuple(ids_to_update), 'file_ids_to_update': tuple(file_ids_to_update),
+                    'column_to_update': column_to_update, 'table_to_update': table_to_update,
+                    'schema_to_update': schema_to_update}
+        self._simple_execute(query, var_dict)
 
     def _get_insert_statment_from_df(self, df, schema, table_name):
         columns = self._get_column_statment_from_df(df)

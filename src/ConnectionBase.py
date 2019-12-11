@@ -18,7 +18,7 @@ class ConnectionBase:
     def append_to_table_return_ids(self, df, schema, table_name, id_column_name):
         pass
 
-    def append_to_table(self, df, schema, table_name):
+    def append_to_table(self, df, schema, table_name, on_conflict='append'):
         pass
 
     def get_data_mapping(self, mapping_schema, end_schema, end_table_name):
@@ -27,5 +27,5 @@ class ConnectionBase:
     def get_source_data(self, data_mapping):
         pass
 
-    def insert_with_conflict(self, df, data_mapping, schema, table_name):
+    def update_source_table(self, source_data, data_mapping):
         pass
