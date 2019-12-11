@@ -15,7 +15,7 @@ null,movies,revenue,bigint,delete,TRUE,null,src_movies_metadata,revenue,str
 null,movies,runtime,int,delete,TRUE,null,src_movies_metadata,runtime,int
 null,movies,tagline,str,delete,TRUE,null,src_movies_metadata,tagline,str
 null,movies,video,boolean,delete,TRUE,null,src_movies_metadata,video,str
-null,movies,vote_agerage,decimal,delete,TRUE,null,src_movies_metadata,vote_average,str
+null,movies,vote_average,decimal,delete,TRUE,null,src_movies_metadata,vote_average,str
 null,movies,vote_count,bigint,delete,TRUE,null,src_movies_metadata,vote_count,str
 null,movies,status,str,delete,TRUE,null,src_movies_metadata,status,str
 null,movies,file_id,bigint,delete,FALSE,null,src_movies_metadata,file_id,bigint
@@ -83,12 +83,3 @@ null,movie_links,movie_id,bigint,delete,TRUE,null,src_links,movieId,bigint
 null,movie_links,file_id,bigint,delete,FALSE,null,src_links,file_id,bigint
 null,movie_links,imdb_id,bigint,delete,TRUE,null,src_links,imdbId,str
 null,movie_links,tmdb_id,bigint,delete,TRUE,null,src_links,tmdbId,str
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,

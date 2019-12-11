@@ -1,4 +1,4 @@
-from src import ConnectionBase
+from src.ConnectionBase import  ConnectionBase
 import psycopg2
 import psycopg2.extras
 import pandas as pd
