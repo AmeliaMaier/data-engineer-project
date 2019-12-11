@@ -1,8 +1,8 @@
-from ConnectionBase import ConnectionBase
+from src.ConnectionBase import  ConnectionBase
 import psycopg2
 import psycopg2.extras
 import pandas as pd
-import pandas.io.sql as psql
+
 
 class PSQLConnection(ConnectionBase):
     """
@@ -74,11 +74,12 @@ class PSQLConnection(ConnectionBase):
         Simple append statement, not taking upsert or confilicts into account yet.
         """
         insert_statement, var_dict = self._get_insert_statment_from_df(df, schema, table_name)
-        if on_conflict = 'delete':
-            CONFLICT("user", "contact") DO UPDATE SET name=EXCLUDED.name RETURNING id;
+        if on_conflict == 'delete':
+            insert_statement += 'ON CONFLICT("user", "contact") DO UPDATE SET deleted=TRUE, deleted_date=now() RETURNING id;'
+            return self._query_to_df(insert_statement, var_dict)
         else:
             insert_statement += ' ON CONFLICT ("id") DO NOTHING;'
-        self._simple_execute(insert_statement, var_dict)
+            self._simple_execute(insert_statement, var_dict)
 
     def get_data_mapping(self, mapping_schema, end_schema, end_table_name):
         query = '''SELECT * FROM %(mapping_schema)s.data_mapping
@@ -96,9 +97,9 @@ class PSQLConnection(ConnectionBase):
         columns = []
         for index, row in data_mapping.iterrows():
             if row['source_data_type'] == 'json':
-                column = f"CAST(SPLIT_PART({row['source_field']}, '.', 1) ->>'SPLIT_PART({row['source_field']}, '.', 2)' as {row['end_data_type']}) as \"{row[end_field]}\""
+                column = f"CAST(SPLIT_PART({row['source_field']}, '.', 1) ->>'SPLIT_PART({row['source_field']}, '.', 2)' as {row['end_data_type']}) as \"{row['end_field']}\""
             else:
-                column = f'CAST("{row["source_field"]}" as {row["end_data_type"]}) as "{row['end_field']}"'
+                column = f'CAST("{row["source_field"]}" as {row["end_data_type"]}) as "{row["end_field"]}"'
             columns.append(column)
         query += f"""{', '.join(columns)} 
                     FROM {data_mapping['source_schema'].iloc[0]}.{data_mapping['source_table'].iloc[0]} 
@@ -151,7 +152,7 @@ class PSQLConnection(ConnectionBase):
         cur = self.conn.cursor(cursor_factory = psycopg2.extras.DictCursor)
         cur.execute(query_str, var_dict)
         results = cur.fetchall()
-        self.curser = conn.cursor()
+        self.curser = self.conn.cursor()
         return results
 
     def _simple_execute(self, query_str, var_dict=None):

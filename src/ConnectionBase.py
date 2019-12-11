@@ -6,6 +6,9 @@ class ConnectionBase:
         New classes with implementations for connection types should use the same method names a here
         so that they are interchangeable.
     """
+    def __init__(self, conn):
+        pass
+
     def table_exists(self, schema, table_name):
         pass
 
