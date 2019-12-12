@@ -70,17 +70,17 @@ class ConnectionBase:
 
     def get_data_mapping(self, mapping_schema, end_schema, end_table_name):
          """
-        Pulls the data-mapping for the table to be filled. Returns data as a dataframe.
-        Parameters
-        ----------
-        mapping_schema: str
-            The schema the data_mapping table is in.
-        end_schema : str
-            The schema the table to be filled is in.
-        end_table_name : str
-            The table name to be filled.
-        """
-        pass
+            Pulls the data-mapping for the table to be filled. Returns data as a dataframe.
+            Parameters
+            ----------
+            mapping_schema: str
+                The schema the data_mapping table is in.
+            end_schema : str
+                The schema the table to be filled is in.
+            end_table_name : str
+                The table name to be filled.
+            """
+         pass
 
     def get_source_data(self, data_mapping):
         """
