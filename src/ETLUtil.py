@@ -5,6 +5,16 @@ import uuid
 import json
 
 def read_csv_types_assigned(file_name, dtype):
+    """
+    Reads in a csv and returns a pandas dataframe.
+    Parameters
+    ----------
+    file_name : str
+        The file name with full or relative path.
+    dtype : dictionary
+        The column names and their types. None if you want 
+        auto typing
+    """
     return pd.read_csv(file_name, dtype=dtype)
 
 def read_csv_to_list_of_dict(file_name):

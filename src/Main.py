@@ -67,8 +67,10 @@ def load_csv(csv_name, schema, table_name, src_file_path, source_backup_path, co
             The schema the table should be in.
         table_name : str
             The name of the table to write the data to.
-        file_path : str
+        src_file_path : str
             The location of the csv file without the file name.
+        source_backup_path : str
+            The location the csv will be moved to after being used.
         connection: object
             The connection to use for writing data out and reading in from database/csv.
     """
@@ -96,6 +98,22 @@ def load_csv(csv_name, schema, table_name, src_file_path, source_backup_path, co
 
 
 def load_table(schema, table_name, connection):
+    """
+        This could be much cleaner and simpler if it was not csv compatible but 
+        relied only on the database instead. 
+
+        This method pulls the data-mapping that applies to the schema.table_name,
+        uses the mapping to pull the data from the source table, renames columns
+        and casts as needed, and saved the data to the schema.table_name. 
+        Parameters
+        ----------
+        schema : str
+            The schema the table should be in.
+        table_name : str
+            The name of the table to write the data to.
+        connection: object
+            The connection to use for writing data out and reading in from database/csv.
+    """
     if not connection.table_exists(schema, table_name):
         raise RuntimeError(f'Main.load_table: Table [{table_name}] needed to write out not found.')
     # load data mapping for given table
@@ -116,6 +134,9 @@ def load_table(schema, table_name, connection):
     connection.update_source_table(source_data, data_mapping)
 
 def load_report():
+    """
+        Has not been filled in as not part of the current assignment.
+    """
     pass
 
 def _get_transformed_columns(df, table_name):

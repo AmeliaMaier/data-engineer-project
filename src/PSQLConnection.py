@@ -6,9 +6,14 @@ import pandas as pd
 
 class PSQLConnection(ConnectionBase):
     """
+    ******* BETA - NOT TESTED ***********************************
         An implementation of connection for psql as you would never 
         actually transform source csvs just to save them as csvs and 
         then import them into a database manually.
+        This section has not been tested and is inteded as a framework 
+        for what is needed. There are likely more efficient ways for 
+        it to work if it does not also need to be compatible with a csv 
+        driven design.
     """
     def __init__(self, conn):
         self.conn = conn
@@ -54,9 +59,21 @@ class PSQLConnection(ConnectionBase):
 
     def append_to_table_return_ids(self, df, schema, table_name, id_column_name):
         """
-        Pandas has the ability to append directly to a table but it doesn't allow 
+        Pandas has the ability to append directly to a database table but it doesn't allow 
         for upsert or for returning the ids yet, so custom sql is currently a
         better option.
+        Appends the data to the schema.table_name and returns the values created in the 
+        id_column_name.
+        Parameters
+        ----------
+        df: pandas dataframe
+            The data to be appended to the table.
+        schema : str
+            The schema the table should be in.
+        table_name : str
+            The table name to search for.
+        id_column_name: str
+            The name of the column to be returned.
         """
         insert_statement, var_dict = self._get_insert_statment_from_df(df, schema, table_name)
         query = f"""WITH inserts as (
@@ -71,7 +88,19 @@ class PSQLConnection(ConnectionBase):
 
     def append_to_table(self, df, schema, table_name, on_conflict='append'):
         """
-        Simple append statement, not taking upsert or confilicts into account yet.
+        Appends the data to the schema.table_name and responds if there is a conflict.
+        Parameters
+        ----------
+        df: pandas dataframe
+            The data to be appended to the table.
+        schema : str
+            The schema the table should be in.
+        table_name : str
+            The table name to search for.
+        on_conflict: str
+            'append' or 'delete'. If 'append' the it does nothing on a conflict. 
+            If 'delete' then it marks the column 'deleted' as True, sets 'deleted_date' as now(),
+            and returns the {table_name}_id for that row.
         """
         insert_statement, var_dict = self._get_insert_statment_from_df(df, schema, table_name)
         if on_conflict == 'delete':
@@ -82,6 +111,17 @@ class PSQLConnection(ConnectionBase):
             self._simple_execute(insert_statement, var_dict)
 
     def get_data_mapping(self, mapping_schema, end_schema, end_table_name):
+        """
+        Pulls the data-mapping for the table to be filled. Returns data as a dataframe.
+        Parameters
+        ----------
+        mapping_schema: str
+            The schema the data_mapping table is in.
+        end_schema : str
+            The schema the table to be filled is in.
+        end_table_name : str
+            The table name to be filled.
+        """
         query = '''SELECT * FROM %(mapping_schema)s.data_mapping
                     WHERE "end_schema" = %(end_schema)s
                     AND "end_table" = %(end_table_name)s;'''
@@ -92,6 +132,13 @@ class PSQLConnection(ConnectionBase):
         """
         This assumes that only one source feeds to each table, as per design to 
         all for full tracking of data from start to end.
+        **This design is not ideal. It needs to be refactored so that this class doesn't know 
+        how data_mapping is formatted but is simply passed the information it needs.
+        Pulls the data from the source data, casts it, and renames it. Returns as dataframe
+        Parameters
+        ----------
+        data_mapping: pandas dataframe
+            The dataframe of all the mapping information for the current transformations.
         """
         query = 'SELCT '
         columns = []
@@ -107,6 +154,19 @@ class PSQLConnection(ConnectionBase):
         return self._query_to_df(query)
 
     def update_source_table(self, source_data, data_mapping):
+        """
+        **This design is not ideal. It needs to be refactored so that this class doesn't know 
+        how data_mapping is formatted but is simply passed the information it needs.
+        Updates the source table to show that the transformation to the end table has been done
+        for the given dataset.
+        Parameters
+        ----------
+        source_data: pandas dataframe
+            The dataframe that contains all the data the was transformed and saved in the 
+            data warehouse.
+        data_mapping: pandas dataframe
+            The dataframe of all the mapping information for the current transformations.
+        """
         ids_to_update = set(source_data['id'].values)
         file_ids_to_update = set(source_data['file_id'].values)
         column_to_update = f'transformed_{source_data["end_table"].iloc[0]}'
