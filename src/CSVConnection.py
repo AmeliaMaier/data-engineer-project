@@ -71,7 +71,6 @@ class CSVConnection(ConnectionBase):
             not_to_unpack = etl.differance_between_lists(source_columns, to_unpack)
             unpack_limited = list(set([x.split('.')[0] for x in to_unpack]))
             source_data = pd.read_csv(file_name, usecols=not_to_unpack+unpack_limited)
-            expected_columns = list(set([x.split('.')[1] for x in to_unpack]))
             for unpack in unpack_limited:
                 source_data = etl.flatten_dataframe_column(source_data, unpack, not_to_unpack)
         else:

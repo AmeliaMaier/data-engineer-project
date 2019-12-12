@@ -27,8 +27,8 @@ data_files/results,collections,first_file_id,bigint,append,data_files/results,sr
 data_files/results,genres,id,bigint,append,data_files/results,src_movies_metadata,genres.id,json
 data_files/results,genres,name,str,append,data_files/results,src_movies_metadata,genres.name,json
 data_files/results,genres,first_file_id,bigint,append,data_files/results,src_movies_metadata,file_id,bigint
-data_files/results,production_companies,id,bigint,append,data_files/results,src_movies_metadata,production_companies.id,bigint
-data_files/results,production_companies,name,str,append,data_files/results,src_movies_metadata,production_companies.name,str
+data_files/results,production_companies,id,bigint,append,data_files/results,src_movies_metadata,production_companies.id,json
+data_files/results,production_companies,name,str,append,data_files/results,src_movies_metadata,production_companies.name,json
 data_files/results,production_companies,first_file_id,bigint,append,data_files/results,src_movies_metadata,file_id,bigint
 data_files/results,keywords,id,bigint,append,data_files/results,src_keywords,keywords.id,json
 data_files/results,keywords,name,str,append,data_files/results,src_keywords,keywords.name,json
