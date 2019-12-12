@@ -52,10 +52,10 @@ data_files/results,movie_genres,file_id,bigint,append,data_files/results,src_mov
 data_files/results,movie_production_companies,production_company_id,bigint,append,data_files/results,src_movies_metadata,production_companies.id,json
 data_files/results,movie_production_companies,movie_id,bigint,append,data_files/results,src_movies_metadata,id,bigint
 data_files/results,movie_production_companies,file_id,bigint,append,data_files/results,src_movies_metadata,file_id,bigint
-data_files/results,movie_production_countries,production_country_id,bigint,append,data_files/results,src_movies_metadata,production_countries.id,json
+data_files/results,movie_production_countries,production_country_id,bigint,append,data_files/results,src_movies_metadata,production_countries.iso_3166_1,json
 data_files/results,movie_production_countries,movie_id,bigint,append,data_files/results,src_movies_metadata,id,bigint
 data_files/results,movie_production_countries,file_id,bigint,append,data_files/results,src_movies_metadata,file_id,bigint
-data_files/results,movie_spoken_languages,spoken_language_id,bigint,append,data_files/results,src_movies_metadata,spoken_languages.id,json
+data_files/results,movie_spoken_languages,spoken_language_id,bigint,append,data_files/results,src_movies_metadata,spoken_languages.iso_639_1,json
 data_files/results,movie_spoken_languages,movie_id,bigint,append,data_files/results,src_movies_metadata,id,bigint
 data_files/results,movie_spoken_languages,file_id,bigint,append,data_files/results,src_movies_metadata,file_id,bigint
 data_files/results,movie_keywords,keyword_id,bigint,append,data_files/results,src_keywords,keywords.id,json
