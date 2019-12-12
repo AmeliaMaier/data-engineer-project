@@ -38,6 +38,16 @@ CREATE TABLE "movie_cast_members" (
   "credit_order" bigint
 );
 
+CREATE TABLE "production_company_report" (
+  "production_company_id" bigint,
+  "production_company_name" text,
+  "year" int,
+  "profit" decimal,
+  "revenue" decimal,
+  "budget" decimal,
+  "average_popularity" decimal
+);
+
 CREATE TABLE "movie_collections" (
   "collection_id" bigint,
   "movie_id" bigint,
@@ -68,10 +78,35 @@ CREATE TABLE "movie_keywords" (
   "file_id" bigint
 );
 
+CREATE TABLE "movie_links" (
+  "movie_id" bigint,
+  "created_date" timestamp,
+  "deleted_date" timestamp,
+  "deleted" boolean,
+  "id" serial bigint,
+  "file_id" bigint,
+  "imdb_id" bigint,
+  "tmdb_id" bigint
+);
+
 CREATE TABLE "file" (
   "name" text,
   "id" serial bigint,
-  "ingested_date" timestamp
+  "ingested_date" timestamp,
+  "backup_name" text
+);
+
+CREATE TABLE "production_company_genre_report" (
+  "production_company_id" bigint,
+  "production_company_name" text,
+  "year" int,
+  "genre_id" bigint,
+  "genre_name" text,
+  "release_count" int,
+  "profit" decimal,
+  "revenue" decimal,
+  "budget" decimal,
+  "average_popularity" decimal
 );
 
 CREATE TABLE "src_links" (
@@ -93,6 +128,16 @@ CREATE TABLE "movie_ratings" (
   "file_id" bigint,
   "rating" decimal,
   "rating_timestamp" timestamp
+);
+
+CREATE TABLE "genre_report" (
+  "genre_id" bigint,
+  "genre_name" text,
+  "year" int,
+  "profit" decimal,
+  "revenue" decimal,
+  "budget" decimal,
+  "average_popularity" decimal
 );
 
 CREATE TABLE "src_movies_metadata" (
@@ -143,6 +188,17 @@ CREATE TABLE "movie_genres" (
   "file_id" bigint
 );
 
+CREATE TABLE "movie_genre_report" (
+  "movie_id" bigint,
+  "movie_name" text,
+  "genre_id" bigint,
+  "genre_name" text,
+  "profit" decimal,
+  "revenue" decimal,
+  "budget" decimal,
+  "release_date" date
+);
+
 CREATE TABLE "spoken_languages" (
   "id" serial bigint,
   "iso_639_1" text,
@@ -176,6 +232,29 @@ CREATE TABLE "movie_production_countries" (
   "file_id" bigint
 );
 
+CREATE TABLE "production_company_movies_report" (
+  "production_company_id" bigint,
+  "production_company_name" text,
+  "movie_id" bigint,
+  "movie_name" text,
+  "profit" decimal,
+  "revenue" decimal,
+  "budget" decimal,
+  "release_date" date
+);
+
+CREATE TABLE "data_mapping" (
+  "end_schema" text,
+  "end_table" text,
+  "end_field" text,
+  "end_data_type" text,
+  "table_type" text,
+  "source_schema" text,
+  "source_table" text,
+  "source_field" text,
+  "source_data_type" text
+);
+
 CREATE TABLE "movie_production_companies" (
   "production_company_id" bigint,
   "movie_id" bigint,
@@ -206,6 +285,16 @@ CREATE TABLE "cast_member" (
   "profile_path" text,
   "created_date" timestamp,
   "first_file_id" bigint
+);
+
+CREATE TABLE "movie_score_report" (
+  "movie_id" bigint,
+  "movie_name" text,
+  "reported_vote_average" decimal,
+  "reported_vote_count" bigint,
+  "calculated_vote_average" decimal,
+  "calculated_vote_count" bigint,
+  "movie_score" decimal
 );
 
 CREATE TABLE "production_countries" (
@@ -250,15 +339,6 @@ CREATE TABLE "src_credits" (
   "transformed_movie_crew_members" boolean
 );
 
-CREATE TABLE "src_keywords" (
-  "file_id" bigint,
-  "created_date" timestamp,
-  "id" bigint,
-  "keywords" text,
-  "transformed_keywords" boolean,
-  "transformed_movie_keywords" boolean
-);
-
 CREATE TABLE "movie_spoken_languages" (
   "spoken_language_id" bigint,
   "movie_id" bigint,
@@ -269,92 +349,12 @@ CREATE TABLE "movie_spoken_languages" (
   "file_id" bigint
 );
 
-CREATE TABLE "movie_score_report" (
-  "movie_id" bigint,
-  "movie_name" text,
-  "reported_vote_average" decimal,
-  "reported_vote_count" bigint,
-  "calculated_vote_average" decimal,
-  "calculated_vote_count" bigint,
-  "movie_score" decimal
-);
-
-CREATE TABLE "production_company_movies_report" (
-  "production_company_id" bigint,
-  "production_company_name" text,
-  "movie_id" bigint,
-  "movie_name" text,
-  "profit" decimal,
-  "revenue" decimal,
-  "budget" decimal,
-  "release_date" date
-);
-
-CREATE TABLE "production_company_report" (
-  "production_company_id" bigint,
-  "production_company_name" text,
-  "year" int,
-  "profit" decimal,
-  "revenue" decimal,
-  "budget" decimal,
-  "average_popularity" decimal
-);
-
-CREATE TABLE "production_company_genre_report" (
-  "production_company_id" bigint,
-  "production_company_name" text,
-  "year" int,
-  "genre_id" bigint,
-  "genre_name" text,
-  "release_count" int,
-  "profit" decimal,
-  "revenue" decimal,
-  "budget" decimal,
-  "average_popularity" decimal
-);
-
-CREATE TABLE "movie_genre_report" (
-  "movie_id" bigint,
-  "movie_name" text,
-  "genre_id" bigint,
-  "genre_name" text,
-  "profit" decimal,
-  "revenue" decimal,
-  "budget" decimal,
-  "release_date" date
-);
-
-CREATE TABLE "genre_report" (
-  "genre_id" bigint,
-  "genre_name" text,
-  "year" int,
-  "profit" decimal,
-  "revenue" decimal,
-  "budget" decimal,
-  "average_popularity" decimal
-);
-
-CREATE TABLE "movie_links" (
-  "movie_id" bigint,
-  "created_date" timestamp,
-  "deleted_date" timestamp,
-  "deleted" boolean,
-  "id" serial bigint,
+CREATE TABLE "src_keywords" (
   "file_id" bigint,
-  "imdb_id" bigint,
-  "tmdb_id" bigint
-);
-
-CREATE TABLE "data_mapping" (
-  "end_schema" text,
-  "end_table" text,
-  "end_field" text,
-  "end_data_type" text,
-  "table_type" text,
-  "unique" boolean,
-  "source_schema" text,
-  "source_table" text,
-  "source_field" text,
-  "source_data_type" text
+  "created_date" timestamp,
+  "id" bigint,
+  "keywords" text,
+  "transformed_keywords" boolean,
+  "transformed_movie_keywords" boolean
 );
 
