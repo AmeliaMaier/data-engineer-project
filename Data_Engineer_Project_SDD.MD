@@ -32,7 +32,7 @@ In order to be as modular as possible, the system will be made up of dynamic mic
 
 # Data Model
 
-![alt text](https://github.com/AmeliaMaier/data-engineer-project/blob/master/src/data_files/Movie%20Data%20Model.pdf "Data Model")
+![Data Model](https://github.com/AmeliaMaier/data-engineer-project/blob/master/src/data_files/Movie%20Data%20Model.pdf "Data Model")
 
 The data model is seperated into four primary sections: source, data warehouse, reporting, and support. The design has a focus on long term auditability.
 * Source
