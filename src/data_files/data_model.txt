@@ -223,7 +223,7 @@ CREATE TABLE "collections" (
 );
 
 CREATE TABLE "movie_production_countries" (
-  "production_country_id" bigint,
+  "production_country_id" text,
   "movie_id" bigint,
   "created_date" timestamp,
   "deleted_date" timestamp,
@@ -340,7 +340,7 @@ CREATE TABLE "src_credits" (
 );
 
 CREATE TABLE "movie_spoken_languages" (
-  "spoken_language_id" bigint,
+  "spoken_language_id" text,
   "movie_id" bigint,
   "created_date" timestamp,
   "deleted_date" timestamp,

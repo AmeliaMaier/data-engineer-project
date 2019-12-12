@@ -17,30 +17,30 @@ def main():
 
     connection = getConnection('CSV', dbname=csv_file_path)
     # load_csvs can happen in any order
-    # load_csv('movies_metadata.csv', result_file_path, 'src_movies_metadata', csv_file_path, source_backup_path, connection)
-    # load_csv('credits.csv', result_file_path, 'src_credits', csv_file_path, source_backup_path, connection)
-    # load_csv('keywords.csv', result_file_path, 'src_keywords', csv_file_path, source_backup_path, connection)
-    # load_csv('links.csv', result_file_path, 'src_links', csv_file_path, source_backup_path, connection)
-    # load_csv('ratings.csv', result_file_path, 'src_ratings', csv_file_path, source_backup_path, connection)
-    # # leaving these out under assumption they are subset of larger files.
-    # # load_csv('links_small.csv', result_file_path, 'src_links', csv_file_path, source_backup_path, connection)
-    # # load_csv('ratings_small.csv', result_file_path, 'src_ratings', csv_file_path, source_backup_path, connection)
+    load_csv('movies_metadata.csv', result_file_path, 'src_movies_metadata', csv_file_path, source_backup_path, connection)
+    load_csv('credits.csv', result_file_path, 'src_credits', csv_file_path, source_backup_path, connection)
+    load_csv('keywords.csv', result_file_path, 'src_keywords', csv_file_path, source_backup_path, connection)
+    load_csv('links.csv', result_file_path, 'src_links', csv_file_path, source_backup_path, connection)
+    load_csv('ratings.csv', result_file_path, 'src_ratings', csv_file_path, source_backup_path, connection)
+    # leaving these out under assumption they are subset of larger files.
+    # load_csv('links_small.csv', result_file_path, 'src_links', csv_file_path, source_backup_path, connection)
+    # load_csv('ratings_small.csv', result_file_path, 'src_ratings', csv_file_path, source_backup_path, connection)
 
     # step 1 in load_tables
-    # load_table(result_file_path,'movies', connection)
-    # load_table(result_file_path,'collections', connection)
-    # load_table(result_file_path,'genres', connection)
-    # load_table(result_file_path,'production_companies', connection)
-    ## these two not needed because international standards should be filled in already
-    ## load_table('production_countries')
-    ## load_table('spoken_languages')
-    # load_table(result_file_path,'keywords', connection)
-    # load_table(result_file_path,'cast_members', connection)
-    # load_table(result_file_path,'crew_members', connection)
+    load_table(result_file_path,'movies', connection)
+    load_table(result_file_path,'collections', connection)
+    load_table(result_file_path,'genres', connection)
+    load_table(result_file_path,'production_companies', connection)
+    # these two not needed because international standards should be filled in already
+    # load_table('production_countries')
+    # load_table('spoken_languages')
+    load_table(result_file_path,'keywords', connection)
+    load_table(result_file_path,'cast_members', connection)
+    load_table(result_file_path,'crew_members', connection)
     # step 2 in load_tables
-    # load_table(result_file_path,'movie_collections', connection)
-    # load_table(result_file_path,'movie_genres', connection)
-    # load_table(result_file_path,'movie_production_companies', connection)
+    load_table(result_file_path,'movie_collections', connection)
+    load_table(result_file_path,'movie_genres', connection)
+    load_table(result_file_path,'movie_production_companies', connection)
     load_table(result_file_path,'movie_production_countries', connection)
     load_table(result_file_path,'movie_spoken_languages', connection)
     load_table(result_file_path,'movie_keywords', connection)
